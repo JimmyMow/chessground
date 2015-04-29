@@ -102,9 +102,7 @@ function renderCurrent(data) {
   var c = data.drawable.current;
   if (!c.orig || !c.over) return;
   var shape = computeShape(data.orientation)(c.orig === c.over ? [c.orig] : [c.orig, c.over]);
-  return shape.length === 1 ?
-    circle(shape[0], true) :
-    arrow(shape[0], shape[1], true);
+  return shape.length === 1 ? circle(shape[0], true) : arrow(shape[0], shape[1], true);
 }
 
 module.exports = function(ctrl) {

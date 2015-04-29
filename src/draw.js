@@ -1,6 +1,10 @@
 var board = require('./board');
 var util = require('./util');
 
+function callUserFunction(f) {
+  setTimeout(f, 1);
+}
+
 function hashPiece(piece) {
   return piece ? piece.color + ' ' + piece.role : '';
 }
@@ -45,6 +49,7 @@ function end(data, e) {
   else addLine(drawable, orig, dest);
   drawable.current = {};
   data.render();
+  callUserFunction(data.events.afterDraw);
 }
 
 function cancel(data) {
@@ -55,6 +60,7 @@ function clear(data, e) {
   if (e.button !== 0 || e.shiftKey) return; // only left click
   data.drawable.shapes = [];
   data.render();
+  callUserFunction(data.events.clearDraw);
 }
 
 function not(f) {

@@ -48,6 +48,11 @@
         ground = window.ground = Chessground(document.getElementById('ground'), {
           draggable: {
             squareTarget: true
+          },
+          events: {
+            change: function() {
+              alert('here');
+            }
           }
         });
       })();

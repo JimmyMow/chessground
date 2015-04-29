@@ -91,7 +91,9 @@ module.exports = function(cfg) {
       // capturedPiece is null or like {color: 'white', 'role': 'queen'}
       move: function(orig, dest, capturedPiece) {},
       capture: function(key, piece) {}, // DEPRECATED called when a piece has been captured
-      select: function(key) {} // called when a square is selected
+      select: function(key) {}, // called when a square is selected
+      afterDraw: function() {}, // called after an arrow or circle is made
+      clearDraw: function() {} // called after arrows and circles are cleared
     },
     drawable: {
       enabled: false, // allows SVG drawings

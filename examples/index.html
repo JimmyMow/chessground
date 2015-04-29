@@ -118,6 +118,14 @@
                 after: onMove
               }
             },
+            events: {
+              afterDraw: function() {
+                console.log(ground.dump().drawable.shapes)
+              },
+              clearDraw: function() {
+                console.log("cleared: ", ground.dump().drawable.shapes);
+              }
+            },
             drawable: {
               enabled: true
             }
